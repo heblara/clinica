@@ -3,7 +3,6 @@
     Created on : 05-16-2013, 02:15:26 PM
     Author     : heblara
 --%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="conexion.jsp" %>
 <!DOCTYPE html>
