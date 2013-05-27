@@ -50,7 +50,7 @@
                     </select></td></td>
             </tr>
             <tr>
-                <td colspan='2'><input type='submit' value="Registrarse" /></td>
+                <td colspan='2'><input type='submit' value="Guardar" /></td>
             </tr>
         </table>
         </form>

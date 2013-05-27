@@ -25,13 +25,14 @@ out.print(request.getParameter("txtApellido"));
 String us="INSERT INTO usuario VALUES(0,'"+email+"',md5('"+email+"'),'Paciente')";
 String q="INSERT INTO paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,idmunicipio,Telefono,Celular) "
  + "VALUES('" +nombre+"','"+apellido+"','"+dui+"','"+email+"','"+genero+"','"+fechanac+"','"+origen+"','"+estadocivil+"','"+direccion+"','"+municipio+"','"+telefono+"','"+celular+"')";
-out.println(q);
+//out.println(q);
 Statement Estamento = conexion.createStatement();
 try {
 // agregando renglon (insert)
 int m=Estamento.executeUpdate(us);
 int n=Estamento.executeUpdate(q);
 //avisando que se hizo la instruccion
-out.println("REGISTRO INSERTADO");
+out.println("Su registro se ha realizado con exito.");
+out.println("<a href='frmLogin.jsp'>Clic aqui para iniciar sesion</a>");
 } catch(SQLException e) {out.println(e);};
 %>
