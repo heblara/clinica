@@ -11,13 +11,16 @@ Statement Estamento = conexion.createStatement();
 String q="SELECT *"
  + " FROM usuario"
  + " WHERE usuario = '"+user+"'"
- + " AND contrasena = md5( '"+user+"' )";
+ + " AND contrasena = md5( '"+contrasena+"' )";
 ResultSet rs = Estamento.executeQuery(q);
-if(rs.getRow()>0){
+out.print(rs.getRow());
+while(rs.next()){
+ if(rs.getRow()>0){
     if(rs.getString("tipousuario")=="Paciente"){
         out.println("Bienvenido paciente");
     }
 }else{
     //response.sendRedirect("frmLogin.jsp?msg=1");
+}   
 }
 %>
