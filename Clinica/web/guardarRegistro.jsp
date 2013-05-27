@@ -22,12 +22,14 @@ String genero=request.getParameter("lstGenero");
 out.print(request.getParameter("txtNombre"));
 out.print(request.getParameter("txtApellido"));
 //String q="insert into paciente(Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil) values(\"" +nombre+"\","+edad+","+estatura+"); ";
-String q="insert into paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,idmunicipio,Telefono,Celular,usuario_idusuario,municipio_idmunicipio,municipio_departamento_iddepartamento) "
+String us="INSERT INTO usuario VALUES(0,'"+email+"','"+email+"','Paciente')";
+String q="INSERT INTO paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,idmunicipio,Telefono,Celular,usuario_idusuario,municipio_idmunicipio,municipio_departamento_iddepartamento) "
  + "VALUES('" +nombre+"','"+apellido+"','"+dui+"','"+email+"','"+genero+"','"+fechanac+"','"+origen+"','"+estadocivil+"','"+direccion+"','"+municipio+"','"+telefono+"','"+celular+"','1','"+municipio+"','"+departamento+"')";
 out.println(q);
 Statement Estamento = conexion.createStatement();
 try {
 // agregando renglon (insert)
+int m=Estamento.executeUpdate(us);
 int n=Estamento.executeUpdate(q);
 //avisando que se hizo la instruccion
 out.println("REGISTRO INSERTADO");
