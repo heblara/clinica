@@ -33,7 +33,7 @@
             <tr>
                 <td colspan="2"><%
                 if(Integer.parseInt(request.getParameter("msg")) == 1){
-                    out.println("Combinacion de usuario y contraseña incorrecta");
+                    out.println("Usuario y contraseña incorrectos");
                 }
                 %></td>
             </tr>

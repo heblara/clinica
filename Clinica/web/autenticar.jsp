@@ -5,22 +5,23 @@
 --%>
 <%@include file="conexion.jsp" %>
 <%
-String user=request.getParameter("txtUsuario");
-String contrasena=request.getParameter("txtPwd");
-Statement Estamento = conexion.createStatement();
-String q="SELECT *"
- + " FROM usuario"
- + " WHERE usuario = '"+user+"'"
- + " AND contrasena = md5( '"+contrasena+"' )";
-ResultSet rs = Estamento.executeQuery(q);
-out.print(rs.getRow());
-while(rs.next()){
- if(rs.getRow()>0){
-    if(rs.getString("tipousuario")=="Paciente"){
-        out.println("Bienvenido paciente");
+    String user = request.getParameter("txtUsuario");
+    String contrasena = request.getParameter("txtPwd");
+    Statement Estamento = conexion.createStatement();
+    String q = "SELECT *"
+            + " FROM usuario"
+            + " WHERE usuario = '" + user + "'"
+            + " AND contrasena = md5( '" + contrasena + "' )";
+    ResultSet rs = Estamento.executeQuery(q);
+    out.print(rs.getRow());
+    if (rs.getRow() == 0) {
+        response.sendRedirect("index.jsp?msg=1");
     }
-}else{
-    //response.sendRedirect("frmLogin.jsp?msg=1");
-}   
-}
+    while (rs.next()) {
+
+        if (rs.getString("tipousuario") == "Paciente") {
+            out.println("Bienvenido paciente");
+        }
+
+    }
 %>
