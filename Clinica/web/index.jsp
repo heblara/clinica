@@ -27,7 +27,7 @@
                     <i class="icon-user icon-large"></i>
                 </p>
                 <p class="field">
-                    <input type="password" type="password" name="txtPwd" id="txtPwd" required="required" placeholder="Password">
+                    <input type="password" name="txtPwd" id="txtPwd" required="required" placeholder="Password">
                     <i class="icon-lock icon-large"></i>
                 </p>
                 <p class="submit">
