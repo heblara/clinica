@@ -10,4 +10,13 @@ body {
     background-color: #003366;
     font-family: "Trebuchet MS";
 }
+caption{
+    color: lightblue;
+}
+table{
+    background-color: #FFF;
+}
+textarea{
+    width: 100%;
+}
 

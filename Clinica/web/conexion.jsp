@@ -12,7 +12,7 @@
 <%
     /*conexion sera nuestra conexion a la bd*/
     Connection conexion=null;
- 
+    Connection canal = null;
     String mensaje="";
  
     /*parametros para la conexion*/
@@ -35,15 +35,5 @@
     if(conexion.isClosed()){
         mensaje="desconectado";
     }
+    
 %>
-<html>
-    <head>
-        <title>EJERCICIO 03 CONEXION BD CON JSP</title>
-    </head>
-    <body>
-        <form action="desconectar.jsp" method="post">
-            <input name="estado" type="text" value="Estado: <%=mensaje%>"/>
-            <input type="submit" value="Desconectar"/>
-        </form>
-    </body>
-</html>
