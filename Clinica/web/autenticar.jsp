@@ -11,7 +11,7 @@
     String contrasena = request.getParameter("txtPwd");
     Statement st = conexion.createStatement();
 
-    String q = "SELECT a.nombre, a.apellido, b.usuario, b.tipousuario "
+    String q = "SELECT a.idpaciente,a.nombre, a.apellido, b.usuario, b.tipousuario "
             + "FROM usuario b INNER JOIN paciente a ON b.idusuario = a.usuario_idusuario "
             + "WHERE b.usuario = '" + user + "' AND b.contrasena  = MD5('" + contrasena + "')";
 
@@ -22,18 +22,23 @@
         String apellido = "";
         String name_usuario = "";
         String tipousuario = "";
+        String idpaciente="";
 
 
         while (rs.next()) {
             nombre = rs.getString("nombre");
             apellido = rs.getString("apellido");
             name_usuario = rs.getString("usuario");
-            tipousuario = rs.getString("tipousuario");
+            tipousuario = rs.getString("tipousuario").toLowerCase();
+            idpaciente = rs.getString("idpaciente");
         }
 
-        out.print(tipousuario);
-        if (tipousuario.equals("Paciente")) {
-            session.setAttribute("nombre", nombre);
+        
+        if (tipousuario.equals("paciente")) {
+            session.setAttribute("nombre", nombre + " " + apellido);
+            session.setAttribute("name_usuario", name_usuario);
+            session.setAttribute("tipo_usuario", tipousuario);
+            session.setAttribute("idpaciente", idpaciente);
             response.sendRedirect("index.paciente.jsp");
         } else {
             response.sendRedirect("index.jsp?msg=1");
