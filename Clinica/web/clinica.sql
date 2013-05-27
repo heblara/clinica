@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-05-2013 a las 10:07:07
+-- Tiempo de generación: 27-05-2013 a las 11:22:31
 -- Versión del servidor: 5.5.31
 -- Versión de PHP: 5.3.10-1ubuntu3.6
 
@@ -47,6 +47,7 @@ CREATE TABLE IF NOT EXISTS `consulta` (
   `Fecha` datetime NOT NULL,
   `idDoctor` int(11) DEFAULT NULL,
   `idHorario` varchar(45) NOT NULL,
+  `Diagnostico` text NOT NULL,
   PRIMARY KEY (`idconsulta`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -427,7 +428,7 @@ CREATE TABLE IF NOT EXISTS `paciente` (
   `Telefono` char(10) NOT NULL,
   `Celular` char(10) DEFAULT NULL,
   PRIMARY KEY (`idpaciente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
@@ -464,7 +465,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `contrasena` varchar(100) DEFAULT NULL,
   `tipousuario` varchar(25) DEFAULT NULL,
   PRIMARY KEY (`idusuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
