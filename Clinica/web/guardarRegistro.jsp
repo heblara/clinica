@@ -19,14 +19,19 @@
     String estadocivil = request.getParameter("lstEstadoCivil");
     String fechanac = request.getParameter("txtFechaNac");
     String genero = request.getParameter("lstGenero");
+    int id=0;
     out.print(request.getParameter("txtNombre"));
     out.print(request.getParameter("txtApellido"));
 //String q="insert into paciente(Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil) values(\"" +nombre+"\","+edad+","+estatura+"); ";
+    Statement Estamento = conexion.createStatement();
     String us = "INSERT INTO usuario VALUES(0,'" + email + "',md5('" + email + "'),'Paciente')";
-    String q = "INSERT INTO paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,idmunicipio,Telefono,Celular) "
+    /*ResultSet rs=Estamento.executeQuery("select * from usuario");
+           if(rs.next()){
+               id=rs.getInt("idusuario");
+           }*/
+    String q = "INSERT INTO paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,municipio_idmunicipio,Telefono,Celular) "
             + "VALUES('" + nombre + "','" + apellido + "','" + dui + "','" + email + "','" + genero + "','" + fechanac + "','" + origen + "','" + estadocivil + "','" + direccion + "','" + municipio + "','" + telefono + "','" + celular + "')";
 //out.println(q);
-    Statement Estamento = conexion.createStatement();
     try {
 // agregando renglon (insert)
         int m = Estamento.executeUpdate(us);
