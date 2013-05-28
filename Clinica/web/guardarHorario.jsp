@@ -13,8 +13,8 @@ int doctor=Integer.parseInt(request.getParameter("lstDoctor"));
 //String q="insert into paciente(Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil) values(\"" +nombre+"\","+edad+","+estatura+"); ";
 //String us="INSERT INTO usuario VALUES(0,'"+email+"','"+email+"','Paciente')";
 String[] array=fecha.split("/");
-String fechaNueva=array[2]+"-"+array[1]+"-"+array[0];
-String q="INSERT INTO horario (Fecha,Hora,idDoctor) VALUES(DATE_FORMAT('"+fechaNueva+"','%Y-%m-%d'),'"+hora+"','"+doctor+"')";
+String fechaNueva=array[2]+"-"+array[0]+"-"+array[1];
+String q="INSERT INTO horario (Fecha,Hora,doctor_iddoctor) VALUES(DATE_FORMAT('"+fechaNueva+"','%Y-%m-%d'),'"+hora+"','"+doctor+"')";
 out.println(q);
 Statement Estamento = conexion.createStatement();
 try {
