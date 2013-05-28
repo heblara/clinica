@@ -19,14 +19,45 @@ $(window).load(function(){
             type: "POST",
             url: 'dataGridConsultasInscritas.jsp',            
             success: function(data){
-                $('#tabs-2').html("");
-                $('#tabs-2').html(data);
+                $('#gridConsultasInscritas').html("");
+                $('#gridConsultasInscritas').html(data);
             },
             dataType: "html"        
         });
     }
     
     
+    
+    var loadMedicamentos=function(search){
+        $.ajax({
+            type: "POST",
+            url: 'dataGridMedicamentos.jsp',
+            data:{
+                search:search
+            },            
+            success: function(data){
+                $('#gridMedicamentos').html("");
+                $('#gridMedicamentos').html(data);
+            },
+            dataType: "html"        
+        });
+    }
+    
+    
+    var loadRecetas=function(idConsulta){
+        $.ajax({
+            type: "POST",
+            url: 'dataGridRecetas.jsp',
+            data:{
+                idConsulta:idConsulta
+            },            
+            success: function(data){
+                $('#gridRecetas').html("");
+                $('#gridRecetas').html(data);
+            },
+            dataType: "html"        
+        });
+    }
     
     var registrarHorario=function (idHorario,type){      
         $.ajax({
@@ -100,9 +131,26 @@ $(window).load(function(){
         });
     });
     
+   
+    $('#tabs-2').on('click','div > table > tbody > tr > td > .historial',function(){       
+        var idConsulta=$(this).parents("tr").find("td").eq(1).html();        
+        loadRecetas(idConsulta);
+        $('#gridRecetas').show();
+        $('#gridConsultasInscritas').hide();
+    });
+    
+    $('#tabs-2').on('click','div > div > .regresar',function(){               
+        $('#gridRecetas').hide();
+        $('#gridConsultasInscritas').show();
+    });
+   
+    $('#btnSearchMedicamento').click(function(){
+        loadMedicamentos($('#txtNombreMedicamento').val());
+    });
     //cargando controladores
     loadHorariosDisponibles();
     loadConsultasInscritas();
+    loadMedicamentos('*');
 });
 
 

@@ -44,6 +44,8 @@
                             out.println("Combinacion de usuario y contraseña incorrecta");
                         } else if (Integer.parseInt(request.getParameter("msg")) == 2) {
                             out.println("Debe de iniciar sesion");
+                        } else if (Integer.parseInt(request.getParameter("msg")) == 3) {
+                            out.println("Su usuario no esta acreditado para el uso de este módulo");
                         }
                     }
                     %></h3>                        

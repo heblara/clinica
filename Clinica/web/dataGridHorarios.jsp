@@ -21,8 +21,8 @@
             <tr class="ui-widget-header ">
                 <th width="5%">#</th>
                 <th width="50%">Doctor</th>
-                <th width="5%">Fecha</th>
-                <th width="5%">Hora</th>
+                <th width="5%">Fecha de Consulta</th>
+                <th width="5%">Hora de Consulta</th>
                 <th width="5%">Operacion</th>
             </tr>
         </thead>
@@ -39,7 +39,7 @@
                 <td align="center"><input type="button" class="button" id="btnHorario<%= correlativo%>"  value="Reservar"/></td>
             </tr>
             <%
-                    correlativo++;
+                    
                 }
                 if (correlativo > 0) {
             %>

@@ -7,7 +7,8 @@
     //verificacion que exista la session
     if (session.getAttribute("tipo_usuario") == null) {
         response.sendRedirect("index.jsp?msg=2");
-    }
+    } //verificamos que el tipo de usuario sea el adecuado
+    else if (session.getAttribute("tipo_usuario").equals("paciente")) {
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -35,31 +36,46 @@
         <div id="tabs">
             <ul>
                 <li><a href="#tabs-1">Horarios disponibles de consulta</a></li>
-                <li><a href="#tabs-2">Historial de consultas inscritas</a></li>
-                <li><a href="#tabs-3">Expediente Médico</a></li>
-                <li><a href="#tabs-4">Farmacia</a></li>
+                <li><a href="#tabs-2">Historial de consultas inscritas</a></li>                
+                <li><a href="#tabs-3">Farmacia</a></li>
             </ul>
             <div id="tabs-1">                
             </div>
-            <div id="tabs-2">                
+            <div id="tabs-2">
+                <div id="gridRecetas"></div>
+                <div id="gridConsultasInscritas"></div>
             </div>
-            <div id="tabs-3">                
+            <div id="tabs-3" align="center">   
+                <table id="frmSearchMedicamento">
+                    <tr>
+                        <td>Nombre del medicamento:</td>
+                        <td><input type="text" name="txtNombreMedicamento" id="txtNombreMedicamento"></td>
+                        <td><input type="button" id="btnSearchMedicamento" name="btnSearchMedicamento" value="Buscar"></td>
+                    </tr>
+                </table>
+                <br>
+                <hr>
+                <br>
+                <div id="gridMedicamentos"></div>
             </div>
-            <div id="tabs-4">                
+
+            <div id="dialog-confirm" title="Reservar consulta" style="display:none">
+                <p>
+                    <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;">                    
+                    </span>Desea reservar este horario de consulta?</p>
             </div>
+
+            <div id="dialog-confirm2" title="Cancelar consulta" style="display:none">
+                <p>
+                    <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;">                    
+                    </span>Desea cancelar la consulta reservada?</p>
+            </div>            
         </div>
-
-        <div id="dialog-confirm" title="Reservar consulta" style="display:none">
-            <p>
-                <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;">                    
-                </span>Desea reservar este horario de consulta?</p>
-        </div>
-
-        <div id="dialog-confirm2" title="Cancelar consulta" style="display:none">
-            <p>
-                <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;">                    
-                </span>Desea cancelar la consulta reservada?</p>
-        </div>            
-
     </body>
 </html>
+<%
+
+    } else {
+        response.sendRedirect("index.jsp?msg=3");
+    }
+%>
