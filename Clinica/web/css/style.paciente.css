@@ -9,11 +9,11 @@
 body{
     font: 72.5% "Trebuchet MS", sans-serif;
     margin: 50px;
-     background: #ddd url(../images/bg.jpg) repeat top left;
+    background: #ddd url(../images/bg.jpg) repeat top left;
 }
 
 h1{
-   font-size: 15px;   
+    font-size: 17px;   
 }
 .demoHeaders {
     margin-top: 2em;
@@ -48,4 +48,8 @@ h1{
 }
 .fakewindowcontain .ui-widget-overlay {
     position: absolute;
+}
+
+.button{
+    font-size: 13px;
 }

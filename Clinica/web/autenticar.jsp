@@ -12,7 +12,7 @@
     Statement st = conexion.createStatement();
 
     String q = "SELECT a.idpaciente,a.nombre, a.apellido, b.usuario, b.tipousuario "
-            + "FROM usuario b INNER JOIN paciente a ON b.idusuario = a.usuario_idusuario "
+            + "FROM usuario b INNER JOIN paciente a ON b.usuario = a.Email "
             + "WHERE b.usuario = '" + user + "' AND b.contrasena  = MD5('" + contrasena + "')";
 
     if (!conexion.isClosed()) {

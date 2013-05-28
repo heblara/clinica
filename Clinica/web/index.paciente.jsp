@@ -3,7 +3,12 @@
     Created on : 05-27-2013, 11:37:28 AM
     Author     : malvarado
 --%>
-
+<%
+    //verificacion que exista la session
+    if (session.getAttribute("tipo_usuario") == null) {
+        response.sendRedirect("index.jsp?msg=2");
+    }
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,7 +23,14 @@
     </head>
     <body>
         <div>
-            <h1>Bienvenido (<%= session.getAttribute("tipo_usuario")%>), <%= session.getAttribute("nombre")%></h1>
+            <table>
+                <tr>
+                    <td><h1>Bienvenido (<%= session.getAttribute("tipo_usuario")%>),</h1></td>
+                    <td><img src="images/user.png" title="Usuario: <%= session.getAttribute("nombre")%>"></td>
+                    <td><h1> <%= session.getAttribute("nombre")%></h1></td>
+                    <td><img src="images/closed.png" title="Cerrar Sesion" id="imgClosed" style="cursor:pointer"></td>
+                </tr>
+            </table>            
         </div>
         <div id="tabs">
             <ul>
@@ -42,5 +54,12 @@
                 <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;">                    
                 </span>Desea reservar este horario de consulta?</p>
         </div>
+
+        <div id="dialog-confirm2" title="Cancelar consulta" style="display:none">
+            <p>
+                <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;">                    
+                </span>Desea cancelar la consulta reservada?</p>
+        </div>            
+
     </body>
 </html>

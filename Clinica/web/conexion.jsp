@@ -9,7 +9,7 @@
     String driver = "com.mysql.jdbc.Driver";
     String url = "jdbc:mysql://localhost:3306/mydb";
     String usuario = "root";
-    String clave = "admincsj";
+    String clave = "admin";
     /*procedimiento de la conexion*/
     try {
         Class.forName(driver);

@@ -42,6 +42,8 @@
 
                         if (Integer.parseInt(request.getParameter("msg")) == 1) {
                             out.println("Combinacion de usuario y contraseña incorrecta");
+                        } else if (Integer.parseInt(request.getParameter("msg")) == 2) {
+                            out.println("Debe de iniciar sesion");
                         }
                     }
                     %></h3>                        
