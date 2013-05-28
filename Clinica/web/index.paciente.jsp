@@ -24,13 +24,23 @@
             <ul>
                 <li><a href="#tabs-1">Horarios disponibles de consulta</a></li>
                 <li><a href="#tabs-2">Historial de consultas inscritas</a></li>
-
+                <li><a href="#tabs-3">Expediente Médico</a></li>
+                <li><a href="#tabs-4">Farmacia</a></li>
             </ul>
             <div id="tabs-1">                
             </div>
             <div id="tabs-2">                
             </div>
+            <div id="tabs-3">                
+            </div>
+            <div id="tabs-4">                
+            </div>
+        </div>
 
+        <div id="dialog-confirm" title="Reservar consulta" style="display:none">
+            <p>
+                <span class="ui-icon ui-icon-alert" style="float: left; margin: 0 7px 20px 0;">                    
+                </span>Desea reservar este horario de consulta?</p>
         </div>
     </body>
 </html>

@@ -12,7 +12,7 @@
     Statement st = conexion.createStatement();
     String q = "select a.idhorario, a.fecha,a.hora,b.nombre,b.apellido "
             + "from horario a inner join doctor b on a.doctor_iddoctor=b.iddoctor "
-            + "where a.fecha>=CURDATE() and a.hora>=CURTIME()";
+            + "where a.fecha>=CURDATE()";
 
     if (!conexion.isClosed()) {
         ResultSet rs = st.executeQuery(q);
@@ -36,7 +36,7 @@
             <td ><%= rs.getString("nombre")%> <%= rs.getString("apellido")%></td>
             <td align="center"><%= rs.getString("fecha")%></td>
             <td align="center"><%= rs.getString("hora")%></td>
-            <td align="center"><a style="cursor: pointer" onclick="seleccionarHorario('<%=rs.getString("idhorario")%>')">Seleccionar</a></td>
+            <td align="center"><input type="button" id="btnHorario<%= correlativo%>" onclick="seleccionarHorario('<%=rs.getString("idhorario")%>')" value="Seleccionar"/></td>
         </tr>
         <%
                 correlativo++;

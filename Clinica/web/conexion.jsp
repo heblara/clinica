@@ -1,14 +1,3 @@
-<%-- 
-    Document   : conexion
-    Created on : 05-16-2013, 09:50:30 PM
-    Author     : Heber
---%>
-
-<%-- 
-en la directiva page observamos el import="java.sql.*"
-esta es la analogia en java a importar paquetes y/o clases
-en el paquete java.sql.* estan las clases necesarias
-para la conexion a la bd mysql --%>
 <%@ page language="java" import="java.sql.*" %>
 <%
     /*conexion sera nuestra conexion a la bd*/
@@ -20,7 +9,7 @@ para la conexion a la bd mysql --%>
     String driver = "com.mysql.jdbc.Driver";
     String url = "jdbc:mysql://localhost:3306/mydb";
     String usuario = "root";
-    String clave = "admin";
+    String clave = "admincsj";
     /*procedimiento de la conexion*/
     try {
         Class.forName(driver);
