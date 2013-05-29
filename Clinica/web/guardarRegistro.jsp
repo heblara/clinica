@@ -29,7 +29,7 @@
            if(rs.next()){
                id=rs.getInt("idusuario");
            }*/
-    String q = "INSERT INTO paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,municipio_idmunicipio,Telefono,Celular) "
+    String q = "INSERT INTO paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,idmunicipio,Telefono,Celular) "
             + "VALUES('" + nombre + "','" + apellido + "','" + dui + "','" + email + "','" + genero + "','" + fechanac + "','" + origen + "','" + estadocivil + "','" + direccion + "','" + municipio + "','" + telefono + "','" + celular + "')";
 //out.println(q);
     try {
@@ -38,7 +38,7 @@
         int n = Estamento.executeUpdate(q);
 //avisando que se hizo la instruccion
         out.println("Su registro se ha realizado con exito.");
-        out.println("<a href='frmLogin.jsp'>Clic aqui para iniciar sesion</a>");
+        out.println("<a href='index.jsp'>Clic aqui para iniciar sesion</a>");
     } catch (SQLException e) {
         out.println(e);
     };

@@ -11,13 +11,24 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registro de Cliente</title>
         <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <link rel="stylesheet" href="css/style.paciente.css" />
+        <script>
+            function showProducts(){
+                //obtiene los objetos productCode, 
+                var code=$("#productCode").val(); //.. y se obtiene el valor
+                //llama al servlet con el parametro seleccionado
+                $("#product").load("ProductServlet", {productCode:code})
+            }
+            $(document).ready(function(){
+                $("#productCode").load("ProductCodeServlet");
+            })</script>
         <style type="text/css" media="screen">
       /*la directiva include copia el contenido de un archivo y lo incrusta en la pagina*/
      <%@ include file="estilos.css" %>
 </style>
     </head>
     <body>
-        <form name="frmRegistro" id="frmRegistro" action="guardarRegistro.jsp">
+        <form name="frmRegistro" id="frmRegistro" action="guardarRegistro.jsp" method="post">
         <table align="center" border="1">
             <caption><h1>Formulario de registro</h1></caption>
             <tr>
