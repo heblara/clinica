@@ -36,13 +36,16 @@
             <ul>
                 <li><a href="#tabs-1">Agregar horario</a></li>
                 <li><a href="#tabs-2">Agregar Doctor</a></li>
-                <li><a href="#tabs-3">Ingresar diagnóstico</a></li>
+                <li><a href="#tabs-3">Agregar Medicamento</a></li>
+                <li><a href="#tabs-4">Ingresar diagnóstico</a></li>
             </ul>
             <div id="tabs-1">                
             </div>
             <div id="tabs-2">                
             </div>
             <div id="tabs-3">                
+            </div>
+            <div id="tabs-4">                
             </div>
         </div>
 

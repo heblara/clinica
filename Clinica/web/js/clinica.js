@@ -25,6 +25,17 @@ $(window).load(function(){
             dataType: "html"        
         });
     }
+    var loadMedicamentos=function(){
+        $.ajax({
+            type: "POST",
+            url: 'frmAgregarMedicamento.jsp',            
+            success: function(data){
+                $('#tabs-3').html("");
+                $('#tabs-3').html(data);
+            },
+            dataType: "html"        
+        });
+    }
     
     
     
@@ -103,6 +114,7 @@ $(window).load(function(){
     //cargando controladores
     loadHorariosDisponibles();
     loadConsultasInscritas();
+    loadMedicamentos();
 });
 
 
