@@ -4,12 +4,12 @@
 <%
     Statement st = conexion.createStatement();
     String q = "select a.idhorario, a.fecha,a.hora,b.nombre,b.apellido "
-            + "from horario a  inner join doctor b on a.doctor_iddoctor=b.iddoctor "
-            + "where a.fecha>=CURDATE() and a.idhorario not in(select c.horario_idhorario "
-            + "from consulta c where c.horario_idhorario=a.idhorario ) ORDER BY a.fecha,a.hora ASC";
+            + "from horario a  inner join doctor b on a.idDoctor=b.iddoctor "
+            + "where a.fecha>=CURDATE() and a.idhorario not in(select c.idhorario "
+            + "from consulta c where c.idhorario=a.idhorario ) ORDER BY a.fecha,a.hora ASC";
     if (!conexion.isClosed()) {
         ResultSet rs = st.executeQuery(q);
-
+        
         Integer correlativo = 0;
         while (rs.next()) {
             correlativo++;
@@ -28,6 +28,7 @@
         </thead>
         <tbody>
             <%            }
+            out.println(correlativo);
             %>
 
             <tr>

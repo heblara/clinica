@@ -22,72 +22,39 @@
         <table align="center" border="1">
             <caption><h1>Ingreso de diagnóstico</h1></caption>
             <tr>
-                <td>Consulta:</td>
-                <td><input type="text" name="txtNombre" id="txtNombre" required="required" /></td>
-                <td>Apellido:</td>
-                <td><input type="text" name="txtApellido" id="txtApellido" required="required" /></td>
-                <td>DUI:</td>
-                <td><input type="text" name="txtDUI" id="txtDUI" required="required" /></td>
+                <td>#</td>
+                <td>Fecha</td>
+                <td>Doctor</td>
+                <td>Horario</td>
             </tr>
+            <%
+            Statement Estamento = conexion.createStatement();
+            ResultSet rs = Estamento.executeQuery("select * from consulta");
+            %>
+            <%
+            while(rs.next()){
+            %>
             <tr>
-                <td>Email:</td>
-                <td><input type="email" name="txtEmail" id="txtEmail" required="required" /></td>
-                <td>Telefono:</td>
-                <td><input type="text" name="txtTelefono" id="txtTelefono" required="required" /></td>
-                <td>Movil:</td>
-                <td><input type="text" name="txtMovil" id="txtMovil" required="required" /></td>
-            </tr>
-            <tr>
-                <td>Genero:</td>
-                <td><select name="lstGenero">
-                        <option value="M">Masculino</option>
-                        <option value="F">Femenino</option>
-                    </select></td>
-                    <td>Fecha de Nacimiento:</td>
-                <td><input type="text" name="txtFechaNac" id="txtFechaNac" required="required" /></td>
-                <td>Estado civil:</td>
+                <td><% out.print(rs.getInt("idconsulta")); %></td>
+                <td><% out.print(rs.getString("Fecha")); %></td>
                 <td>
-                    <select name="lstEstadoCivil">
-                        <option value="1">Soltero/a</option>
-                        <option value="2">Casado/a</option>
-                        <option value="3">Divorciado/a</option>
-                        <option value="3">Viudo/a</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Lugar de origen:</td>
-                <td><input type="text" name="txtLugar" id="txtLugar" required="required" /></td>
-                <td>Departamento:</td>
                 <%
-                Statement Estamento = conexion.createStatement();
-                ResultSet rs = Estamento.executeQuery("select * from departamento");
+                ResultSet doc = Estamento.executeQuery("select * from doctor where iddoctor='"+rs.getInt("idDoctor")+"'");
+                while(doc.next()){
+                    out.println(doc.getString("Nombre")+" "+doc.getString("Apellido"));
+                }
                 %>
-                <td><select name="lstDepartamento">
-                        <%
-                        while(rs.next()){
-                        %>
-                        <option value="<% out.print(rs.getInt("iddepartamento")); %>"><% out.print(rs.getString("Descripcion")); %></option>
-                        <%
-                        }
-                        %>
-                    </select></td>
-                <td>Municipio:</td>
-                <td>
-                    <select name="lstMunicipio">
-                        <option value="1">San Salvador</option>
-                        <option value="2">Soyapango</option>
-                        <option value="3">Ilopango</option>
-                    </select>
                 </td>
+                <td><%
+                ResultSet hor = Estamento.executeQuery("select * from horario where idhorario='"+rs.getInt("idHorario")+"'");
+                while(hor.next()){
+                    out.println(hor.getString("Fecha")+" "+hor.getString("Hora"));
+                }
+                %></td>
             </tr>
-            <tr>
-                <td>Direccion:</td>
-                <td colspan='7'><textarea name="txtDireccion" id="txtDireccion"></textarea></td>
-            </tr>
-            <tr>
-                <td colspan='2'><input type='submit' value="Guardar" /></td>
-            </tr>
+            <%
+            }
+            %>
         </table>
         </form>
     </body>

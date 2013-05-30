@@ -29,7 +29,7 @@
            if(rs.next()){
                id=rs.getInt("idusuario");
            }*/
-    String q = "INSERT INTO paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,municipio_idmunicipio,Telefono,Celular) "
+    String q = "INSERT INTO paciente (Nombre,Apellido,DUI,Email,Genero,FechaNac,LugarOrigen,EstadoCivil,Direccion,idmunicipio,Telefono,Celular) "
             + "VALUES('" + nombre + "','" + apellido + "','" + dui + "','" + email + "','" + genero + "','" + fechanac + "','" + origen + "','" + estadocivil + "','" + direccion + "','" + municipio + "','" + telefono + "','" + celular + "')";
 //out.println(q);
     try {
