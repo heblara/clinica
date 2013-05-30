@@ -5,9 +5,9 @@
     Statement st = conexion.createStatement();
     Integer idPaciente = Integer.parseInt(session.getAttribute("idpaciente").toString());
     String q = "select a.idconsulta,a.estado,DATE_FORMAT(a.fecha_reserva,'%Y-%m-%d %H:%i:%s') fechare,b.fecha,b.hora,c.nombre,c.apellido "
-            + "from consulta a inner join horario b on a.horario_idhorario=b.idhorario "
-            + "inner join doctor c on b.doctor_iddoctor=c.iddoctor "
-            + "where a.paciente_idpaciente=" + idPaciente+" ORDER BY b.fecha,b.hora ASC";
+            + "from consulta a inner join horario b on a.idhorario=b.idhorario "
+            + "inner join doctor c on b.iddoctor=c.iddoctor "
+            + "where a.idpaciente=" + idPaciente+" ORDER BY b.fecha,b.hora ASC";
     if (!conexion.isClosed()) {
         ResultSet rs = st.executeQuery(q);
 

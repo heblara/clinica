@@ -8,7 +8,7 @@
     Statement st = conexion.createStatement();
     String q = "";
     if (type == 1) {
-        q = "INSERT INTO consulta (paciente_idpaciente,horario_idhorario,estado,fecha_reserva) VALUES (" + idPaciente + "," + idHorario + ",'P',NOW())";
+        q = "INSERT INTO consulta (idpaciente,idhorario,estado,fecha_reserva) VALUES (" + idPaciente + "," + idHorario + ",'P',NOW())";
     } else if (type == 2) {
         q = "DELETE FROM consulta WHERE idconsulta=" + idHorario;
     }
